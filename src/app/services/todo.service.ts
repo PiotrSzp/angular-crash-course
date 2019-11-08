@@ -35,4 +35,9 @@ export class TodoService {
     const url = `${this.todosApiUrl}/${todo.id}`;
     return this.http.delete<Todo>(url, httpOptions);
   }
+
+  // Add to server
+  addTodo(todo: Todo): Observable<Todo> {
+    return this.http.post<Todo>(this.todosApiUrl, todo, httpOptions);
+  }
 }
